@@ -14,8 +14,8 @@ export const site = {
     "A developer who enjoys turning ideas into clean, working products. [Is line ko apne hisaab se personalize karo.]",
 
   about: [
-    "I'm a [Computer Science / Software Engineering] student and developer. I build web and software projects — taking an idea all the way to a working, deployed product.",
-    "[1–2 sentences likho: aap kya banana pasand karte ho ya abhi kya seekh rahe ho. Honest aur specific rakho.]",
+    "I'm a Computer Science student at Sir Syed University of Engineering & Technology and an aspiring software engineer who enjoys turning ideas into functional products. From designing user interfaces to developing backend systems and deploying applications, I love building complete solutions while continuously learning new technologies and industry-standard development practices.",
+    "[I enjoy developing web applications and automation tools, especially projects that combine clean user interfaces with efficient backend systems. Currently, I'm learning advanced full-stack development concepts and improving my problem-solving skills through practical software projects.]",
   ],
 
   facts: [
