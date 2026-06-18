@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { site } from "@/lib/data";
 import { Reveal } from "./Reveal";
 
@@ -8,9 +9,22 @@ export default function About() {
     <section id="about" className="border-t border-line bg-paper-2">
       <div className="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
         <div className="grid gap-10 md:grid-cols-[180px_1fr] md:gap-16">
-          <Reveal>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">About</span>
-          </Reveal>
+          <div>
+            <Reveal>
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">About</span>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="relative mt-6 aspect-[4/5] max-w-[200px] overflow-hidden rounded-xl border border-line">
+                <Image
+                  src="/profile.jpeg"
+                  alt={site.name}
+                  fill
+                  sizes="200px"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
 
           <div className="max-w-2xl">
             {site.about.map((para, i) => (

@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 import { projects } from "@/lib/data";
 import { Reveal } from "./Reveal";
 
@@ -10,7 +11,6 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export default function Work() {
   const [active, setActive] = useState<number | null>(null);
 
-  // Track the cursor and smooth it with a spring for the floating preview.
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const x = useSpring(mouseX, { stiffness: 350, damping: 35, mass: 0.4 });
@@ -18,7 +18,6 @@ export default function Work() {
 
   function handleMove(e: React.MouseEvent) {
     const b = e.currentTarget.getBoundingClientRect();
-    // Offset so the card floats up-and-left of the pointer.
     mouseX.set(e.clientX - b.left - 48);
     mouseY.set(e.clientY - b.top - 210);
   }
@@ -44,18 +43,32 @@ export default function Work() {
               exit={{ opacity: 0, scale: 0.92 }}
               transition={{ duration: 0.22, ease: EASE }}
             >
-              <div
-                className="flex h-full w-full flex-col justify-end p-4"
-                style={{
-                  background: `linear-gradient(150deg, ${projects[active].accent}, ${projects[active].accent}cc 55%, #14130f)`,
-                }}
-              >
-                <span className="font-display text-2xl font-bold text-white">
-                  {projects[active].title}
-                </span>
-                <span className="mt-1 font-mono text-xs text-white/80">
-                  {projects[active].stack.join(" · ")}
-                </span>
+              <div className="relative h-full w-full">
+                {projects[active].image ? (
+                  <Image
+                    src={projects[active].image as string}
+                    alt={projects[active].title}
+                    fill
+                    sizes="256px"
+                    className="object-cover"
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `linear-gradient(150deg, ${projects[active].accent}, ${projects[active].accent}cc 55%, #14130f)`,
+                    }}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4">
+                  <span className="block font-display text-2xl font-bold text-white">
+                    {projects[active].title}
+                  </span>
+                  <span className="mt-1 block font-mono text-xs text-white/80">
+                    {projects[active].stack.join(" / ")}
+                  </span>
+                </div>
               </div>
             </motion.div>
           )}

@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
-  name: "Sheikh Farjad",
+  name: "Sheikh Farjad Ahmed",
   role: "Web Developer", // ← apna title (jaise "Software Developer", "Full-stack Developer")
   location: "Karachi, PK",
   email: "techbuildhub01@gmail.com",
@@ -33,6 +33,7 @@ export type Project = {
   stack: string[];
   href: string;
   accent: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -44,6 +45,7 @@ export const projects: Project[] = [
       "An e-commerce grocery web app with product browsing, categories, cart and wishlist, built with a clean, responsive Next.js front-end.",
     stack: ["Next.js", "React", "JavaScript"],
     href: "https://grocery-store-app-01.vercel.app/",
+    image: "/grocery.jpg",
     accent: "#1f6d3a",
   },
   {
@@ -54,6 +56,7 @@ export const projects: Project[] = [
       "A C++ desktop application built for my university Data Structures course, using a Windows Forms interface. [1 line add karo ke ye exactly kya karta hai.]",
     stack: ["C++", "Windows Forms", ".NET"],
     href: "https://github.com/techbuildhub01-gif/DSA-PROJECT",
+    image: "/dsa.png",
     accent: "#2230ff",
   },
 ];
